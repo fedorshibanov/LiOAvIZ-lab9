@@ -8,7 +8,6 @@
 #include <ctime>
 #include <queue>
 
-/* Матрица и настоящие односвязные списки смежности. Нумерация внутри с нуля. */
 struct Node { int vertex; Node *next; };
 struct Graph { int n; int *a; Node **adj; };
 void *allocate(size_t n, size_t size) {

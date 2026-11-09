@@ -1,8 +1,6 @@
 #include "graph.h"
 
 
-/* DFS повторно раскрывает вершину при улучшении расстояния.
-   Обычный DFS первого посещения не гарантирует кратчайших путей. */
 void dfs_relax(const Graph *g,int u,bool lists,int *d) {
     if(lists) {
         for(Node *p=g->adj[u];p;p=p->next) {
@@ -13,7 +11,6 @@ void dfs_relax(const Graph *g,int u,bool lists,int *d) {
         d[v]=d[u]+1; dfs_relax(g,v,lists,d);
     }
 }
-/* 0 BFS матрица, 1 BFS списки, 2 DFS матрица, 3 DFS списки. */
 void distances(const Graph *g,int start,int mode,int *d) {
     for(int i=0;i<g->n;++i) d[i]=-1;
     d[start]=0;
